@@ -1,7 +1,6 @@
 {
   "name": "todo-app-react-redux-aws",
   "version": "0.1.0",
-  "private": true,
   "devDependencies": {
     "react-scripts": "0.9.5"
   },
@@ -9,7 +8,7 @@
     "name": "Dominic Fallows",
     "email": "consultant@dominicfallows.uk"
   },
-  "license" : "MIT",
+  "license": "MIT",
   "homepage": "https://github.com/dominicfallows/todo-app-react-redux-aws#readme",
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
     "todo"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "lodash": "^4.17.4",
     "node-uuid": "^1.4.7",
     "normalizr": "^2.1.0",

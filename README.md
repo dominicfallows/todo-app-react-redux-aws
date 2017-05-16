@@ -1,6 +1,9 @@
 # Todo App (React + Redux + AWS)
 
-TODO: documentation and this readme file.
+# TODO
+- Connect with AWS (Cognito, DynamoDB, API Gateway)
+- Documentation
+- README
 
 ## License
 MIT License - see LICENSE

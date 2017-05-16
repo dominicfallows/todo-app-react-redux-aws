@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import AppHeader from '../components/App/AppHeader';
 import AppHeaderDrawer from '../components/App/AppHeaderDrawer';
@@ -13,7 +14,8 @@ const HomeScreen = () => (
 
     <main className="site-main mdl-layout__content">
       <div className="page-content">
-        <p>Welcome</p>
+        <h1>Welcome</h1>
+        <p>Skip straight to <Link to="/todos">Todos</Link> for now.</p>
       </div>
     </main>
 
