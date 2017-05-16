@@ -1,0 +1,25 @@
+.todo-list__item {
+  border-bottom: "1px solid #efefef"
+}
+
+.todo-list__item.todo-list__item--completed {
+  color: #bcbcbc;
+}
+
+.todo-list__item .todo-list__item-toggle {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.todo-list__item .todo-list__item-delete {
+  color: #ccc;
+}
+
+.todo-list__item .todo-list__item-delete:hover {
+  color: #ef5350;
+  cursor: pointer;
+}
+
+.todo-list__item .todo-list__item-delete i {
+  font-size: 1em;
+}

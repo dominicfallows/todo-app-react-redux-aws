@@ -1,0 +1,45 @@
+{
+  "name": "todo-app-react-redux-aws",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "author": {
+    "name": "Dominic Fallows",
+    "email": "consultant@dominicfallows.uk"
+  },
+  "license" : "MIT",
+  "homepage": "https://github.com/dominicfallows/todo-app-react-redux-aws#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominicfallows/todo-app-react-redux-aws.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "javascript",
+    "aws",
+    "todo"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "node-uuid": "^1.4.7",
+    "normalizr": "^2.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^4.4.5",
+    "react-router": "^3.0.0",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

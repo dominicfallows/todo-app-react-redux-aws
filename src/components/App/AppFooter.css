@@ -1,0 +1,9 @@
+.app-footer .mdl-logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.app-footer .mdl-logo a:hover {
+  color: rgb(33,150,243);
+  cursor: pointer;
+}

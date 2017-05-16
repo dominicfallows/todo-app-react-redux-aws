@@ -1,0 +1,27 @@
+.todo-add-form {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.todo-add-form .mdl-textfield {
+  padding-top: 12px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.todo-add-form .mdl-textfield .mdl-textfield__label {
+  top: 14px;
+}
+
+.todo-add-form .mdl-textfield .mdl-textfield__input {
+  border-bottom: none;
+}
+
+.todo-add-form .mdl-textfield.is-focused {
+  padding-top: 35px;
+  padding-bottom: 20px;
+}
+
+.todo-add-form .mdl-textfield.is-focused .mdl-textfield__label {
+  top: 14px;
+}
