@@ -1,9 +1,9 @@
 # Todo App (React + Redux + AWS)
+Example at [https://dominicfallows.github.io/todo-app-react-redux-aws/](https://dominicfallows.github.io/todo-app-react-redux-aws/)
 
-# TODO
-- Connect with AWS (Cognito, DynamoDB, API Gateway)
-- Documentation
-- README
+# Project
+[Project Status](https://github.com/dominicfallows/todo-app-react-redux-aws/projects/1)
+[Issues](https://github.com/dominicfallows/todo-app-react-redux-aws/issues)
 
 ## License
 MIT License - see LICENSE
