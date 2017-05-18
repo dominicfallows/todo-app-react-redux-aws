@@ -1,9 +1,9 @@
 ### Todo App (React + Redux + AWS) Documentation
-[Main Repo / Code](https://dominicfallows.github.io/todo-app-react-redux-aws/) &nbsp;&nbsp;&nbsp;&nbsp; [Getting Started](https://dominicfallows.github.io/todo-app-react-redux-aws/docs/getting-started.md)
+[Main Repo / Code](https://github.com/dominicfallows/todo-app-react-redux-aws) &nbsp;&nbsp;&nbsp;&nbsp; [Getting Started](https://github.com/dominicfallows/todo-app-react-redux-aws/blob/master/docs/getting-started.md)
 
 # Getting Started
 
-1. This app uses AWS Cognito as its authentication system. Please follow [these steps to prepare AWS Coginto](https://dominicfallows.github.io/todo-app-react-redux-aws/docs/getting-started-aws-cognito.md) 
+1. This app uses AWS Cognito as its authentication system. Please follow [these steps to prepare AWS Coginto](https://github.com/dominicfallows/todo-app-react-redux-aws/blob/master/docs/getting-started-aws-cognito.md) 
 
 2. Copy the file `config/aws_SAMPLE.js` and rename to `config/aws.js`. Then, update the file with your Cognito details
 

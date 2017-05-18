@@ -2,7 +2,7 @@
 Example at [https://dominicfallows.github.io/todo-app-react-redux-aws/](https://dominicfallows.github.io/todo-app-react-redux-aws/)
 
 ## Documentation
-- [Getting Started](https://dominicfallows.github.io/todo-app-react-redux-aws/docs/getting-started.md)
+- [Getting Started](https://github.com/dominicfallows/todo-app-react-redux-aws/blob/master/docs/getting-started.md)
 
 
 ## 2017 React + Redux Flow
