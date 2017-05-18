@@ -7,3 +7,4 @@ lib
 coverage
 es
 build
+src/config/aws.js
