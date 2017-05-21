@@ -5,16 +5,12 @@ const createSignUpReducer = () => {
   const userInitialState = {
     username: "",
     firstname: "",
-    lastname: ""
+    lastname: "",
+    signUpSuccess: false,
+    userConfirmed: false
   }
 
   const user = (state = userInitialState, action) => {
-
-    //console.log(state, action);
-    /*if (username !== action.response.user.username) {
-      return state;
-    }*/
-
     switch(action.type) {
       case 'AUTH_SIGNUP_FAILURE':
         const user = Object.assign({}, action.user);
@@ -23,8 +19,7 @@ const createSignUpReducer = () => {
       case "AUTH_SIGNUP_SUCCESS":
         if (action.user) {
           return {
-            ...state,
-            ...action.response.user,
+            ...action.user,
           };
         }
         return state;
@@ -34,10 +29,6 @@ const createSignUpReducer = () => {
   };
 
   const errorMessage = (state = null, action) => {
-    /*if (username !== action.response.user.username) {
-      return state;
-    }*/
-
     switch (action.type) {
       case 'AUTH_SIGNUP_FAILURE':
       case 'AUTH_SIGNIN_FAILURE':

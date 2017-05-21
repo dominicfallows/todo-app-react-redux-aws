@@ -10,7 +10,6 @@ class SignUpForm extends React.Component {
 
   constructor(props){
     super(props);
-
     const { user } = this.props;
 
     this.state = {
@@ -18,8 +17,7 @@ class SignUpForm extends React.Component {
       lastname: user.lastname || "",
       email: user.username || "",
       password: "",
-      passwordConfirm: "",
-      newsletterSignUp: false
+      passwordConfirm: ""
     };
   }
 
@@ -46,6 +44,7 @@ class SignUpForm extends React.Component {
   }
 
   render = () => {
+    const { authRequested, errorMessage, user } = this.props;
 
     const formElements = [
       {
@@ -97,15 +96,6 @@ class SignUpForm extends React.Component {
         errorMessage: this.state.passwordConfirmError,
         validationMessage: "Password confirm must match the password",
         required: true
-      },
-      {
-        name: "newsletterSignUp",
-        type: "checkbox",
-        label: "Sign up for newsletter",
-        value: this.state.newsletterSignUp,
-        onChange: this.handleInputChange,
-        errorMessage: null,
-        required: true
       }
     ];
 
@@ -113,16 +103,31 @@ class SignUpForm extends React.Component {
       this.validateAndSubmit(formElements);
     }
 
-    console.log(this.props);
+    if(authRequested) {
+      console.log("authRequested");
+      return <div className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>;
+    }
+
+    if(user.signUpSuccess && !user.userConfirmed) {
+      return (
+        <div className="auth-signup mdl-card mdl-shadow--2dp">
+          <div className="mdl-card__title mdl-color--primary">
+            <h3 className="mdl-card__title-text mdl-color-text--white">Please verify your account</h3>
+          </div>
+          <div className="mdl-card__supporting-text">
+            <p>To verify your account, please click the link in the email, or enter the code below.</p>
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div className="auth-signup mdl-card mdl-shadow--2dp">
         <div className="mdl-card__title mdl-color--primary">
           <h3 className="mdl-card__title-text mdl-color-text--white">Please enter your details</h3>
         </div>
-
         <div className="mdl-card__supporting-text">
-          {this.props.errorMessage && <div className="mdl-cell mdl-cell--12-col mdl-color-text--red">{ this.props.errorMessage }</div>}
+          {errorMessage && <div className="mdl-cell mdl-cell--12-col mdl-color-text--red">{ errorMessage }</div>}
           
           <Form onSubmit={onSubmitWrapper} handleErrorMessage={this.handleErrorMessage} elements={formElements}>
             <div className="mdl-card__actions mdl-grid">
@@ -137,16 +142,20 @@ class SignUpForm extends React.Component {
         </div>
       </div>
     )
+
   }
 };
 
 SignUpForm.propTypes = {
+  authRequested: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
   user: PropTypes.shape({
     username: PropTypes.string.isRequired,
     firstname: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired
+    lastname: PropTypes.string.isRequired,
+    signUpSuccess: PropTypes.bool.isRequired,
+    userConfirmed: PropTypes.bool.isRequired
   }).isRequired
 };
 

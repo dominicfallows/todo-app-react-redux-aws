@@ -18,12 +18,9 @@ class SignUpContainer extends Component {
   render() {
     const { authRequested, errorMessage, user } = this.props;
 
-    if (authRequested) {
-      return <div className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>;
-    }
-
     return (
       <SignUpForm
+        authRequested={authRequested}
         errorMessage={errorMessage}
         onSubmit={(user) => this.onSubmit(user)}
         user={user}
@@ -41,7 +38,9 @@ SignUpContainer.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string.isRequired,
     firstname: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired
+    lastname: PropTypes.string.isRequired,
+    signUpSuccess: PropTypes.bool.isRequired,
+    userConfirmed: PropTypes.bool.isRequired
   }).isRequired
 };
 

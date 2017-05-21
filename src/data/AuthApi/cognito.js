@@ -68,10 +68,10 @@ export const signUp = (user = {}) => {
   return new Promise((resolve, reject) => {
     userPool.signUp(username, password, attributeList, null, (err, result) => {
       if (err) return reject(err);
-
+      
       const user = {
         username: result.user.getUsername(),
-        userConfirmed: result.user.userConfirmed
+        userConfirmed: result.userConfirmed
       };
 
       resolve(user);

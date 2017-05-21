@@ -13,9 +13,16 @@ export const actionAuthSignUp = (user) => (dispatch, getState) => {
 
   return cognitoApi.signUp(user).then(
     response => {
+      const newUser = {
+        username: response.username,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        signUpSuccess: true,
+        userConfirmed: response.userConfirmed
+      }
       dispatch({
         type: 'AUTH_SIGNUP_SUCCESS',
-        response: response,
+        user: newUser
       });
     },
     error => {
