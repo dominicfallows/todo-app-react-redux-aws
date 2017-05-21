@@ -65,6 +65,5 @@ export const toggleTodoApi = (id) =>
   delay(250).then(() => {
     const todo = fakeDatabase.todos.find(t => t.id === id);
     todo.completed = !todo.completed;
-    console.log(todo);
     return todo;
   });

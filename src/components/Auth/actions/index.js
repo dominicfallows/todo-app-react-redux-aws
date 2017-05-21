@@ -1,32 +1,29 @@
-import { normalize } from 'normalizr';
-import * as schema from './schema';
-//import * as AuthApi from '../../api/Auth';
-import { getSignInRequestedSelector } from 'selectors/Auth';
+import * as cognitoApi from "data/AuthApi/cognito";
+import { selectAuthRequested } from 'components/Auth/selectors';
 
-export const signInActionCreator = (username) => (dispatch, getState) => {
-  if (getSignInRequestedSelector(getState())) {
+export const actionAuthSignUp = (user) => (dispatch, getState) => {
+  if (selectAuthRequested(getState())) {
     return Promise.resolve();
   }
 
   dispatch({
-    type: 'AUTH_SIGNIN_REQUEST',
-    username,
+    type: 'AUTH_REQUEST_START',
+    user,
   });
 
-  /*return todosApi.fetchTodosApi(filter).then(
+  return cognitoApi.signUp(user).then(
     response => {
       dispatch({
-        type: 'FETCH_TODOS_SUCCESS',
-        filter,
-        response: normalize(response, schema.arrayOfTodos),
+        type: 'AUTH_SIGNUP_SUCCESS',
+        response: response,
       });
     },
     error => {
       dispatch({
-        type: 'FETCH_TODOS_FAILURE',
-        filter,
-        message: error.message || 'Something went wrong with fetchTodosActionCreator.',
+        type: 'AUTH_SIGNUP_FAILURE',
+        user: user,
+        message: error.message || 'Something went wrong with actionAuthSignUp.',
       });
     }
-  );*/
+  );
 };

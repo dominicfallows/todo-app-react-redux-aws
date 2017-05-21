@@ -1,8 +1,8 @@
-export const getUserSignInDetailsSelector = (state) => 
-  state.auth.signIn.details;
+export const selectAuthRequested = (state) => 
+  state.auth ? state.auth.authRequested : false;
 
-export const getSignInRequestedSelector = (state) => 
-  state.auth.user.signInRequested;
+export const selectAuthSignUpErrorMessage = (state) => 
+  state.auth ? state.auth.signUp.errorMessage : null;
 
-export const getSignInErrorMessageSelector = (state) => 
-  state.auth.signIn.errorMessage;
+export const selectAuthSignUpUser = (state) =>
+  state.auth ? state.auth.signUp.user : null;

@@ -1,21 +1,27 @@
 .app-footer.mdl-mini-footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+}
 
-@media screen and (max-width: 759px) {
+@media screen and (max-width:759px) {
   /* Small only */
   .app-footer .mdl-logo {
     line-height: 1.6;
-    margin-bottom: 0; } }
+    margin-bottom: 0;
+  }
+}
 
 .app-footer .mdl-logo a {
   color: #fff;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .app-footer .mdl-logo a:hover {
-  color: #2196f3;
-  cursor: pointer; }
+  color: rgb(33,150,243);
+  cursor: pointer;
+}
 
 .app-footer .mdl-mini-footer__link-list {
-  font-size: 0.9em; }
+  font-size: 0.9em;
+}

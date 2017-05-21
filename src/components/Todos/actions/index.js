@@ -2,10 +2,10 @@ import { normalize } from 'normalizr';
 import * as schema from './schema';
 
 import * as todosApi from 'data/TodosApi';
-import { getIsFetchingSelector } from 'components/Todos/selectors';
+import { selectIsFetching } from 'components/Todos/selectors';
 
-export const fetchTodosActionCreator = (filter) => (dispatch, getState) => {
-  if (getIsFetchingSelector(getState(), filter)) {
+export const actionFetchTodos = (filter) => (dispatch, getState) => {
+  if (selectIsFetching(getState(), filter)) {
     return Promise.resolve();
   }
 
@@ -26,13 +26,13 @@ export const fetchTodosActionCreator = (filter) => (dispatch, getState) => {
       dispatch({
         type: 'FETCH_TODOS_FAILURE',
         filter,
-        message: error.message || 'Something went wrong with fetchTodosActionCreator.',
+        message: error.message || 'Something went wrong with actionFetchTodos.',
       });
     }
   );
 };
 
-export const addTodoActionCreator = (text) => (dispatch) =>
+export const actionAddTodo = (text) => (dispatch) => 
   todosApi.addTodoApi(text).then(response => {
     dispatch({
       type: 'ADD_TODO_SUCCESS',
@@ -40,7 +40,7 @@ export const addTodoActionCreator = (text) => (dispatch) =>
     });
   });
 
-export const deleteTodoActionCreator = (id) => (dispatch) =>
+export const actionDeleteTodo = (id) => (dispatch) =>
   todosApi.deleteTodoApi(id).then(
     response => {
       dispatch({
@@ -51,12 +51,12 @@ export const deleteTodoActionCreator = (id) => (dispatch) =>
     error => {
       dispatch({
         type: 'DELETE_TODO_FAILURE',
-        message: error.message || 'Something went wrong with deleteTodoActionCreator.',
+        message: error.message || 'Something went wrong with actionDeleteTodo.',
       });
     }
   );
 
-export const toggleTodoActionCreator = (id) => (dispatch) =>
+export const actionToggleTodo = (id) => (dispatch) =>
   todosApi.toggleTodoApi(id).then(response => {
     dispatch({
       type: 'TOGGLE_TODO_SUCCESS',

@@ -7,8 +7,8 @@ import FilterTodoList from 'components/Todos/components/FilterTodoList';
 
 import "./index.css";
 
-const Todos = () => (
-  <div className="page-content">
+const TodosScreen = () => (
+  <div className="page-content todos-content">
     <header>
       <h1>Todos</h1>
     </header>
@@ -20,10 +20,10 @@ const Todos = () => (
   </div>
 );
 
-Todos.propTypes = {
+TodosScreen.propTypes = {
   params: PropTypes.shape({
     filter: PropTypes.string,
   }),
 };
 
-export default Todos;
+export default TodosScreen;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
-import { addTodoActionCreator } from 'components/Todos/actions';
+import { actionAddTodo } from 'components/Todos/actions';
 
 import "./index.css";
 
@@ -17,7 +17,7 @@ const AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return;
         }
-        dispatch(addTodoActionCreator(input.value));
+        dispatch(actionAddTodo(input.value));
         input.value = '';
       }}
     >

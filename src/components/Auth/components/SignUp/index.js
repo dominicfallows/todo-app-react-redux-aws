@@ -1,21 +1,61 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 
-//import AWSConfig from 'config/aws.js';
-//import * as AuthUtils from "components/Auth/utils";
+import * as actions from 'components/Auth/actions';
+import { selectAuthRequested, selectAuthSignUpErrorMessage, selectAuthSignUpUser } from 'components/Auth/selectors';
+
+import SignUpForm from 'components/Auth/components/SignUp/SignUpForm';
 
 class SignUpContainer extends Component {
 
+  onSubmit(user) {
+    const { actionAuthSignUp } = this.props;
+    actionAuthSignUp(user);
+  }
+
   render() {
+    const { authRequested, errorMessage, user } = this.props;
+
+    if (authRequested) {
+      return <div className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>;
+    }
 
     return (
-      <div className="auth-signup">
-        <h3>Sign Up</h3>
-        <p>...</p>
-      </div> 
+      <SignUpForm
+        errorMessage={errorMessage}
+        onSubmit={(user) => this.onSubmit(user)}
+        user={user}
+      />
     )
 
   }
 
 };
+
+SignUpContainer.propTypes = {
+  authRequested: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  actionAuthSignUp: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired
+  }).isRequired
+};
+
+const mapStateToProps = (state, { params }) => {  
+  return {
+    authRequested: selectAuthRequested(state),
+    errorMessage: selectAuthSignUpErrorMessage(state),
+    user: selectAuthSignUpUser(state)
+  };
+};
+
+SignUpContainer = withRouter(connect(
+  mapStateToProps,
+  actions
+)(SignUpContainer));
 
 export default SignUpContainer;

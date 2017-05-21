@@ -1,8 +1,13 @@
 import { combineReducers } from 'redux';
-import signIn from './signIn';
+
+import authRequested from "./authRequested";
+import createSignUpReducer from "./signUp";
+
+const signUp = createSignUpReducer();
 
 const auth = combineReducers({
-  signIn
+  authRequested,
+  signUp
 });
 
 export default auth;

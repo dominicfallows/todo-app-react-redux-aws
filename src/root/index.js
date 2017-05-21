@@ -10,17 +10,19 @@ import browserHistory from "./browserHistory";
 import App from "components/App";
 
 // Import child components (screens)
-import Home from "screens/Home";
-import Todos from "screens/Todos";
+import HomeScreen from "screens/Home";
+import TodosScreen from "screens/Todos";
+import SignUpScreen from "screens/Auth/SignUp";
 
 // Setup root app, provider and router
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={Home} />
+        <IndexRoute component={HomeScreen} />
 
-        <Route path="/todos(/:filter)" component={Todos} />
+        <Route path="/todos(/:filter)" component={TodosScreen} />
+        <Route path="/sign-up" component={SignUpScreen} />
       </Route>
     </Router>
   </Provider>

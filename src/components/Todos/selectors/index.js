@@ -1,10 +1,10 @@
-export const getVisibleTodosSelector = (state, filter) => {
+export const selectVisibleTodos = (state, filter) => {
   const ids = state.todos.listByFilter[filter].ids;
   return ids.map(id => state.todos.byId[id]);
 };
 
-export const getIsFetchingSelector = (state, filter) => 
+export const selectIsFetching = (state, filter) => 
   state.todos.listByFilter[filter].isFetching;
 
-export const getErrorMessageSelector = (state, filter) => 
+export const selectErrorMessage = (state, filter) => 
   state.todos.listByFilter[filter].errorMessage;

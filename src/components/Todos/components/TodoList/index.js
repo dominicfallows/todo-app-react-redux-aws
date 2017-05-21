@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 import * as actions from 'components/Todos/actions';
-import { getVisibleTodosSelector, getErrorMessageSelector, getIsFetchingSelector } from 'components/Todos/selectors';
+import { selectVisibleTodos, selectErrorMessage, selectIsFetching } from 'components/Todos/selectors';
 import TodoList from 'components/Todos/components/TodoList/TodoList';
 import TodoFetchError from 'components/Todos/components/TodoFetchError';
 
@@ -20,12 +20,12 @@ class TodoListContainer extends Component {
   }
 
   fetchData() {
-    const { filter, fetchTodosActionCreator } = this.props;
-    fetchTodosActionCreator(filter);
+    const { filter, actionFetchTodos } = this.props;
+    actionFetchTodos(filter);
   }
 
   render() {
-    const { isFetching, errorMessage, toggleTodoActionCreator, deleteTodoActionCreator, todos } = this.props;
+    const { isFetching, errorMessage, actionToggleTodo, actionDeleteTodo, todos } = this.props;
     if (isFetching && !todos.length) {
       return <div className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>;
     }
@@ -41,8 +41,8 @@ class TodoListContainer extends Component {
     return (
       <TodoList
         todos={todos}
-        onTodoClickToggle={toggleTodoActionCreator} 
-        onTodoClickDelete={deleteTodoActionCreator}
+        onTodoClickToggle={actionToggleTodo} 
+        onTodoClickDelete={actionDeleteTodo}
       />
     );
   }
@@ -53,17 +53,17 @@ TodoListContainer.propTypes = {
   errorMessage: PropTypes.string,
   todos: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  fetchTodosActionCreator: PropTypes.func.isRequired,
-  toggleTodoActionCreator: PropTypes.func.isRequired,
-  deleteTodoActionCreator: PropTypes.func.isRequired,
+  actionFetchTodos: PropTypes.func.isRequired,
+  actionToggleTodo: PropTypes.func.isRequired,
+  actionDeleteTodo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, { params }) => {  
   const filter = params.filter || 'all';
   return {
-    isFetching: getIsFetchingSelector(state, filter),
-    errorMessage: getErrorMessageSelector(state, filter),
-    todos: getVisibleTodosSelector(state, filter),
+    isFetching: selectIsFetching(state, filter),
+    errorMessage: selectErrorMessage(state, filter),
+    todos: selectVisibleTodos(state, filter),
     filter,
   };
 };
